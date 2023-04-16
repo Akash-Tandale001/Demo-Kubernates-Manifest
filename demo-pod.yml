@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testPod
+  annotations:
+    discription: Hello I'm Akash
+  labels:
+    app: testPod
+spec:
+  containers:
+    - name: C001
+      image: ubuntu
+      command: ["/bin/bash","-c","while true; do echo Hello-Vishal; sleep 5; done;"]
+      env:
+        - name: Myname
+          value: Vishal
+    - name: C002
+      image: ubuntu
+      command: ["/bin/bash","-c","while true; do echo Hello-Akash; sleep 5; done;"]
+      env:
+        - name: Myname
+          value: Akash
+    - name: C003
+      image: ubuntu
+      command: ["/bin/bash","-c","while true; do echo Hello-John; sleep 5; done;"]
+      env:
+        - name: Myname
+          value: John
+    - name: C004
+      image: httpd # Apache server
+      ports:
+        - containerPort: 80
+  restartPolicy: Never
